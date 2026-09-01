@@ -1,0 +1,105 @@
+/*
+
+CSS for navbar component
+
+*/
+/* Navbar component */
+
+:host {
+  display: block;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 95%;
+  padding: 5px;
+}
+
+/* Home/site name */
+
+#webname {
+  margin: 0;
+  text-align: center;
+}
+
+#webname a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Main navigation links */
+
+#nav-list {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  gap: 0.5rem;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+  text-align: left;
+}
+
+#nav-list li {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+#nav-list a {
+  display: block;
+  width: max-content;
+
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+}
+
+#nav-list a:hover {
+  text-decoration: underline;
+}
+
+/* External site icons */
+
+#site-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+#site-list li {
+  margin: 0;
+  padding: 0;
+}
+
+#site-list a {
+  display: block;
+  text-decoration: none;
+}
+
+#site-list img {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+
+/* Copyright */
+
+#copyright {
+  text-align: center;
+}

@@ -1,0 +1,57 @@
+/*
+
+Main Format for most sites, unless otherwise stated tbhongi.
+
+Format for the ff are followed. other things the website needs to borrow
+borrow from it's own specialized sheet as well.
+
+1.) titlebar
+2.) navbar
+
+3.) header
+4.) body
+5.) footer
+
+6.) sidebar
+
+*/
+
+/*for debugging*/
+* {
+  box-sizing: border-box;
+  outline: 2px solid rgba(255, 192, 203, 1);
+}
+
+#left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: fixed;
+  height: 95%;
+  width: 15%;
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-left: 17.5%;
+  margin-right: 17.5%;
+}
+
+#center header {
+}
+
+#center body {
+}
+
+#center footer {
+}
+
+#right {
+}
+
+#right {
+}
