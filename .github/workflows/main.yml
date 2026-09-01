@@ -16,4 +16,4 @@ jobs:
             nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
             nekoweb-domain: 'raiten.nekoweb.org'
             nekoweb-username: 'raiten'
-            directory: 'public'
+            directory: 'raiten.nekoweb.org'
