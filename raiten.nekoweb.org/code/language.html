@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <!--CSS-->
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/codeblock.css" />
+
+    <!--JS-->
+    <script src="/components/titlecard.js" defer></script>
+    <script src="/components/navbar.js" defer></script>
+    <script src="/components/tabbar.js" defer></script>
+  </head>
+
+  <body>
+    <div id="left">
+      <title-card title="Home"></title-card>
+      <nav-bar></nav-bar>
+    </div>
+
+    <div id="center">
+      <tab-bar section="Code"></tab-bar>
+
+      <div class="grid">
+
+        <section class="langBlock">
+            <p class="langTitle"> C </p>
+            <p class="langDesc"> Shrimpy </p>
+
+            <p class="langSample"> Hello World in C:</p>
+            <pre class="codeblock"><code class="code">#import &lt;stdio.h&gt;
+int main() {
+    print("Hello World!");
+    return 0;
+}</code></pre></section>
+
+        <section class="langBlock">
+            <p class="langTitle"> Python </p>
+            <p class="langDesc"> Shrimpy </p>
+
+            <p class="langSample"> Breadth First Search Algorithm</p>
+            <pre class="codeblock"><code class="code">def bfs(visited, graph, node):
+    visited.append(node)
+    queue.append(node)
+
+    while queue:
+        s = queue.pop(0)
+        
+        for neighbor in graph[s]:
+            if neighbor not in visited:
+                visited.append(neighbor)
+                queue.append(neighbor)
+
+            </code></pre></section>
+    </div>
+
+    <div id="right"></div>
+  </body>
+</html>

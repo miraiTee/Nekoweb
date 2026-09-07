@@ -1,26 +1,27 @@
 <!doctype html>
+
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> </title>
-
     <!--CSS-->
     <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/codeblock.css" />
 
     <!--JS-->
+    <script src="/components/titlecard.js" defer></script>
     <script src="/components/navbar.js" defer></script>
-    <script src="/components/titlebar.js" defer></script>
+    <script src="/components/tabbar.js" defer></script>
   </head>
 
   <body>
     <div id="left">
-      <title-bar section1="Projects"></title-bar>
+      <title-card title="About / Me"></title-card>
       <nav-bar></nav-bar>
     </div>
 
     <div id="center">
-      <body></body>
+      <tab-bar section="About"></tab-bar>
     </div>
+
+    <div id="right"></div>
   </body>
 </html>

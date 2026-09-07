@@ -1,137 +1,128 @@
 /*
-
-Webcomponent to display the navigation bar of the screen.
-Directs to the first section in each navigation.
-
-Navigation bar.
-
-Logo / webname (redirect to Home)
-
-NavList 
-nav-elements (inserted as text and link)
-
-SiteList 
-site-elements (inserted to slots w/ image and link)
-
-<p> small pp for copyright section <p>
-
+  Displays the navlist for the website.
+  Rendered at all times unless otherwise stated.
 */
 
-const logo = {
-  text: "@mirai10",
-  href: "/index.html",
+const HEADER = {
+  name: "mirai10",
+  address: "/index.html",
 };
 
-const navItems = [
-  { text: "About", href: "/site/about/me.html" },
-  //{ text: "Art", href: "/site/art.html" },
-  { text: "Blog", href: "/site/blog.html" },
-  { text: "Board", href: "/site/board.html" },
-  { text: "Code", href: "/site/code/language.html" },
-  { text: "Projects", href: "/site/projects.html" },
-  { text: "Resources", href: "/site/resources.html" },
-  { text: "Fluff", href: "/site/fluff.html" },
+const NAVLINKS = [
+  { item: "About", address: "/about/me.html" },
+  { item: "Blog", address: "/blog.html" },
+  { item: "Code", address: "/code/language.html" },
+  { item: "Projects", address: "/projects.html" },
+  { item: "Resources", address: "/resources.html" },
+  { item: "Fluff", address: "/fluff.html" },
 ];
 
-const siteItems = [
-  /*
+const SITELINKS = [
   {
-    image: "/assets/images/icons/sitelinks/gmail.png",
-    alt: "Gmail",
-    href: "mailto:mirielletime@gmail.com",
+    name: "Altersprings",
+    src: "/assets/images/icons/sitelinks/altersprings.png",
+    address: "https://alterspring.org/@miraiTee",
   },
   {
-    image: "/assets/images/icons/sitelinks/bsky.png",
-    alt: "Bluesky",
-    href: "https://bsky.app/",
+    name: "Bsky",
+    src: "/assets/images/icons/sitelinks/bsky.png",
+    address: "https://bsky.app/profile/bitmae.bsky.social",
   },
   {
-    image: "/assets/images/icons/sitelinks/codeberg.png",
-    alt: "Codeberg",
-    href: "https://codeberg.org/",
+    name: "Codeberg",
+    src: "/assets/images/icons/sitelinks/codeberg.png",
+    address: "https://codeberg.org/user/settings/actions/runners",
   },
-  */
+  {
+    name: "Github",
+    src: "/assets/images/icons/sitelinks/github.png",
+    address: "https://github.com/miraiTee",
+  },
+  {
+    name: "Gmail",
+    src: "/assets/images/icons/sitelinks/gmail.png",
+    address: "mailto:mirielletime@gmail.com",
+  },
 ];
-
-const copyright = "© 2026 Mirai Tee";
 
 class Navbar extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
-    const stylesheet = document.createElement("link");
-    stylesheet.rel = "stylesheet";
-    stylesheet.href = "/styles/components/navbar.css";
-
-    this.shadowRoot.append(stylesheet);
+    //const shadowRoot = this.attachShadow({ mode: "open" });
   }
 
   connectedCallback() {
-    if (!this.shadowRoot.querySelector("nav")) {
-      this.renderNavbar();
-    }
+    const navbar = this.renderNavbar();
+    this.appendChild(navbar);
   }
 
   renderNavbar() {
-    const nav = document.createElement("nav");
+    const nav = document.createElement("aside");
     nav.id = "navbar";
-    nav.className = "navbar";
+    const header = this.buildHeader();
+    const navList = this.buildNavlinks();
+    const siteList = this.buildSitelinks();
 
-    const webname = document.createElement("p");
-    webname.id = "webname";
+    nav.append(header, navList, siteList);
 
-    const homelink = document.createElement("a");
-    homelink.href = logo.href;
-    homelink.textContent = logo.text;
+    return nav;
+  }
 
-    webname.append(homelink);
+  buildHeader() {
+    const header = document.createElement("h1");
+    header.id = "header";
 
+    const title = document.createElement("a");
+    title.textContent = HEADER.name;
+    title.href = HEADER.address;
+
+    header.appendChild(title);
+
+    return header;
+  }
+
+  buildNavlinks() {
     const navList = document.createElement("ul");
-    navList.id = "nav-list";
-    navList.className = "nav-list";
+    navList.id = "navList";
 
-    for (const item of navItems) {
+    NAVLINKS.forEach((navLink) => {
       const listItem = document.createElement("li");
-      listItem.className = "nav-item";
+      listItem.className = "navitem";
 
       const link = document.createElement("a");
-      link.href = item.href;
-      link.textContent = item.text;
-      link.className = "nav-link";
+      link.textContent = navLink.item;
+      link.href = navLink.address;
 
-      listItem.append(link);
-      navList.append(listItem);
-    }
+      listItem.appendChild(link);
+      navList.appendChild(listItem);
+    });
 
+    return navList;
+  }
+
+  buildSitelinks() {
     const siteList = document.createElement("ul");
-    siteList.id = "site-list";
-    siteList.className = "site-list";
+    siteList.id = "siteList";
 
-    for (const item of siteItems) {
-      const listItem = document.createElement("li");
-      listItem.className = "site-item";
+    SITELINKS.forEach((siteLink) => {
+      const siteItem = document.createElement("li");
+      siteItem.className = "siteItem";
 
       const link = document.createElement("a");
-      link.href = item.href;
-      link.className = "site-link";
+      link.href = siteLink.address;
+      link.setAttribute("aria-label", siteLink.name);
 
-      const image = document.createElement("img");
-      image.src = item.image;
-      image.alt = item.alt;
-      image.className = "site-icon";
+      const icon = document.createElement("img");
+      icon.className = "siteIcon";
+      icon.src = siteLink.src;
+      icon.alt = `${siteLink.name} icon`;
 
-      link.append(image);
-      listItem.append(link);
-      siteList.append(listItem);
-    }
+      link.appendChild(icon);
+      siteItem.appendChild(link);
+      siteList.appendChild(siteItem);
+    });
 
-    const copyrightText = document.createElement("small");
-    copyrightText.id = "copyright";
-    copyrightText.className = "copyright";
-    copyrightText.textContent = copyright;
-
-    nav.append(webname, navList, siteList, copyrightText);
-    this.shadowRoot.append(nav);
+    return siteList;
   }
 }
 

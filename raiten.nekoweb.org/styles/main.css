@@ -1,57 +1,66 @@
 /*
-
-Main Format for most sites, unless otherwise stated tbhongi.
-
-Format for the ff are followed. other things the website needs to borrow
-borrow from it's own specialized sheet as well.
-
-1.) titlebar
-2.) navbar
-
-3.) header
-4.) body
-5.) footer
-
-6.) sidebar
-
+CSS FOR THE ENTIRE THING
 */
 
-/*for debugging*/
 * {
-  box-sizing: border-box;
-  outline: 2px solid rgba(255, 192, 203, 1);
+  border: 1px pink solid;
+  font-family: "Helvetica Neue", sans-serif;
 }
 
-#left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* NAVBAR */
+#navbar > ul {
+  padding: 0;
+}
 
+li {
+  list-style: none;
+}
+
+li > a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#siteList > li {
+  display: inline;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.siteIcon {
+  height: 24px;
+  width: 24px;
+  display: inline-block;
+}
+
+/* Title */
+#titleCard {
+}
+
+#title {
+}
+
+/* Tabs */
+
+
+/* Blockings */
+
+#left {
+  width: 25%;
   position: fixed;
-  height: 95%;
-  width: 15%;
 }
 
 #center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin-left: 17.5%;
-  margin-right: 17.5%;
-}
-
-#center header {
-}
-
-#center body {
-}
-
-#center footer {
+  position: absolute;
+  margin-left: 27.5%;
+  width: 70%;
 }
 
 #right {
 }
+.grid {
+  display: grid;
 
-#right {
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 600px;
 }
