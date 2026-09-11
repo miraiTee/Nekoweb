@@ -4,10 +4,7 @@
 
 import subprocess
 
-def publish():
+def github():
     print("Publishing to Github")
     subprocess.call(["bash", "push.sh"])
     print("Finished Publishing")
-    
-if __name__ == "__main__":
-    publish()
