@@ -4,7 +4,7 @@
 */
 
 const HEADER = {
-  name: "mirai10",
+  name: "mirai 10!",
   address: "/index.html",
 };
 
@@ -87,7 +87,7 @@ class Navbar extends HTMLElement {
 
     NAVLINKS.forEach((navLink) => {
       const listItem = document.createElement("li");
-      listItem.className = "navitem";
+      listItem.className = "navItem";
 
       const link = document.createElement("a");
       link.textContent = navLink.item;
@@ -103,6 +103,12 @@ class Navbar extends HTMLElement {
   buildSitelinks() {
     const siteList = document.createElement("ul");
     siteList.id = "siteList";
+
+    const siteDesc = document.createElement("p");
+    siteDesc.id = "siteDesc";
+    siteDesc.textContent = "Find me elsewhere!";
+
+    siteList.append(siteDesc);
 
     SITELINKS.forEach((siteLink) => {
       const siteItem = document.createElement("li");

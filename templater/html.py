@@ -49,7 +49,7 @@ def buildSection():
 
     with doc:
         with div(id='left'):
-            title_card("Home")
+            title_card("Blog")
             nav_bar()
 
         with div(id="center"):

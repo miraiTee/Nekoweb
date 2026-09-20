@@ -2,58 +2,128 @@
 CSS FOR THE ENTIRE THING
 */
 
+/*
 * {
   border: 1px pink solid;
   font-family: "Helvetica Neue", sans-serif;
 }
+*/
+
+@font-face {
+  font-family: box;
+  src: url("/assets/fonts/cute_notes/Cute Notes.ttf");
+}
+
+@font-face {
+  font-family: code;
+  src: url("/assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf");
+}
+
+.freeform {
+  height: 200px;
+  width: 200px;
+  position: absolute;
+}
+
+/* TITLE */
+
+#intro {
+  border: 8px pink solid;
+  background-color: peachpuff;
+  height: 600px;
+  width: 500px;
+}
 
 /* NAVBAR */
+#header > a {
+  color: white;
+  font-size: 48px;
+  font-family: box;
+  padding-left: 16px;
+  text-decoration: none;
+}
+
 #navbar > ul {
   padding: 0;
 }
 
-li {
+#navList {
   list-style: none;
 }
 
-li > a {
-  color: inherit;
+.navItem > a {
+  font-size: 24px;
+  padding-left: 4px;
   text-decoration: none;
+}
+
+.navItem > a:link,
+.navItem > a:visited {
+  color: white;
+}
+
+.navItem > a:hover {
+  text-shadow: 1px 1px 2px pink;
+}
+
+.navItem:hover {
+  color: grey;
+  background-color: darkblue;
+  border-top: 2px solid lightblue;
+  border-bottom: 2px solid lightblue;
+}
+
+#siteDesc {
+  color: violet;
+  font-family: Code;
+  font-size: 36px;
+  text-shadow: 1px 1px 2px purple;
+
+  text-align: center;
+  text-decoration: underline;
 }
 
 #siteList > li {
   display: inline;
-  padding-left: 6px;
-  padding-right: 6px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .siteIcon {
-  height: 24px;
-  width: 24px;
+  height: 48px;
+  width: 48px;
   display: inline-block;
 }
 
 /* Title */
 #titleCard {
+  text-align: right;
 }
 
 #title {
+  padding-right: 6px;
+
+  color: darkgrey;
+  font-size: 48px;
+  font-family: code;
 }
 
 /* Tabs */
 
-
 /* Blockings */
 
 #left {
-  width: 25%;
+  width: 400px;
+  height: 97.5%;
   position: fixed;
+  background-image: url("/assets/images/bg/left_image.jpg");
+  background-position: -200px 0;
 }
 
 #center {
   position: absolute;
-  margin-left: 27.5%;
-  width: 70%;
+  margin-left: 420px;
+  width: 800px;
 }
 
 #right {

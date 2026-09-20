@@ -1,6 +1,7 @@
 /*
     Displays the currect section of the page.
 */
+
 class TitleCard extends HTMLElement {
   constructor() {
     super();
