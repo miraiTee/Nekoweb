@@ -6,10 +6,11 @@ from pathlib import Path
 import os
 
 import dominate
+import markdown
 import frontmatter as FM
 from dominate.tags import *
 from dominate.util import *
-import md
+import parsemd
 
 METADATA_PATH = "../metadata"
 
@@ -35,7 +36,7 @@ def buildSection():
     metadata = []
     
     for file in metadata_folder:
-        metadata.append(md.parse(Path(f"{METADATA_PATH}{SECTION}/{file}")))
+        metadata.append(parsemd.parse(Path(f"{METADATA_PATH}{SECTION}/{file}")))
         
     #Sort by date
     mergeSort(metadata)    
@@ -69,14 +70,14 @@ def buildSection():
 
 def buildPost(post):
     OUTPUT_PATH = Path(str(f"{BLOG_PATH}/{SECTION}/{post['slug']}.html"))
-    
     doc = dominate.document(title=f"mirai10 | {post['title']}")
-    
 
     with doc.head:
         link(rel='stylesheet', href='/styles/main.css')
         script(type='text/javascript', src='/components/titlecard.js')
         script(type='text/javascript', src='/components/navbar.js')
+
+    content_html = markdown.markdown(post.content)
 
     with doc:
         with div(id='left'):
@@ -84,10 +85,11 @@ def buildPost(post):
             nav_bar()
 
         with div(id="center"):
-            h1(f"{post['title']}")
-            h2(f"{post['date']}")
-            h2(f"{post['tags']}")
-            p(f"{post}")
+            h1(post['title'])
+            h2(str(post['date']))
+            h2(post["tags"])
+            
+            raw(content_html)
 
         div(id="right")
     
