@@ -6,11 +6,12 @@ from pathlib import Path
 import os
 
 import dominate
+import datetime as dt
 import markdown
 import frontmatter as FM
 from dominate.tags import *
 from dominate.util import *
-import parsemd
+import MDBuild
 
 METADATA_PATH = "../metadata"
 
@@ -20,7 +21,6 @@ BLOG_PATH = "../raiten.nekoweb.org"
 SECTION = "/blog"
 TITLE = "Blog"
 
-import datetime as dt
 
 def title_card(title):
     return raw(
@@ -36,7 +36,7 @@ def buildSection():
     metadata = []
     
     for file in metadata_folder:
-        metadata.append(parsemd.parse(Path(f"{METADATA_PATH}{SECTION}/{file}")))
+        metadata.append(MDBuild.parse(Path(f"{METADATA_PATH}{SECTION}/{file}")))
         
     #Sort by date
     mergeSort(metadata)    
@@ -56,38 +56,38 @@ def buildSection():
         with div(id="center"):
             ul(id="bloglist")
             
-            for post in metadata:
-                href = Path(str(f"{SECTION}/{post[0]['slug']}.html"))
+            for file in metadata:
+                href = Path(str(f"{SECTION}/{file[0]['slug']}.html"))
                 li(id="blogitem")
-                h1(f"{post[0]['date']}")
+                h1(f"{file[0]['date']}")
                 with a(href=href):
-                    p(f"{post[0]['title']}")
+                    p(f"{file[0]['title']}")
 
         div(id="right")
 
     with open(SECTION_PATH, "w") as file:
         file.write(str(doc))
 
-def buildPost(post):
-    OUTPUT_PATH = Path(str(f"{BLOG_PATH}/{SECTION}/{post['slug']}.html"))
-    doc = dominate.document(title=f"mirai10 | {post['title']}")
+def buildPost(title, slug, date, tags, content):
+    OUTPUT_PATH = Path(str(f"{BLOG_PATH}/{SECTION}/{slug}.html"))
+    doc = dominate.document(title=f"mirai10 | {title}")
 
     with doc.head:
         link(rel='stylesheet', href='/styles/main.css')
         script(type='text/javascript', src='/components/titlecard.js')
         script(type='text/javascript', src='/components/navbar.js')
 
-    content_html = markdown.markdown(post.content)
+    content_html = markdown.markdown(content)
 
     with doc:
         with div(id='left'):
-            title_card(title="Home")
+            title_card("Blog")
             nav_bar()
 
         with div(id="center"):
-            h1(post['title'])
-            h2(str(post['date']))
-            h2(post["tags"])
+            h1(title)
+            h2(date)
+            h2(tags)
             
             raw(content_html)
 

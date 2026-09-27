@@ -4,8 +4,8 @@ from PyQt6.QtCore import *
 from PyQt6.QtWidgets import *
 
 import datetime as dt
-import parsehtml
-import parsemd
+import webBuild
+import MDBuild
 import publish
 
 class MainWindow(QMainWindow):
@@ -61,8 +61,9 @@ class MainWindow(QMainWindow):
         now = dt.datetime.now()
         date = now.strftime("%B %d %y")
 
-        parsehtml.buildPost(parsemd.build(title, slug, date, tags, content))
-        parsehtml.buildSection()
+        MDBuild.buildmarkdown(title, slug, date, tags, content)
+        webBuild.buildPost(title, slug, date, tags, content)
+        webBuild.buildSection()
         publish.github()
 
         self.close()
