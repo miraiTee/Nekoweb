@@ -54,14 +54,14 @@ class MainWindow(QMainWindow):
 
     def postdat(self):
         title = self.titlebox.toPlainText()
-        tags = self.tagbox.toPlainText().split(", ")
+        tags = self.tagbox.toPlainText()
         content = self.contentbox.toPlainText()
         slug = self.slugbox.toPlainText()
 
         now = dt.datetime.now()
         date = now.strftime("%B %d %y")
 
-        MDBuild.buildmarkdown(title, slug, date, tags, content)
+        MDBuild.buildmarkdown(title, slug, date, tags.split(", "), content)
         webBuild.buildPost(title, slug, date, tags, content)
         webBuild.buildSection()
         publish.github()
