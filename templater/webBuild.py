@@ -55,13 +55,13 @@ def buildSection():
             nav_bar()
 
         with div(id="center"):
-            ul(id="bloglist")
+            with ul(id="bloglist"):
             
-            for file in metadata:
-                href = Path(str(f"{SECTION}/{file[0]['slug']}.html"))
-                li(id="blogitem")
-                with a(href=href):
-                    p(f"{file[0]['date']} - [{file[0]['tags']}] : {file[0]['title']}")
+                for file in metadata:
+                    href = Path(str(f"{SECTION}/{file[0]['slug']}.html"))
+                    with li(id="blogitem"):
+                        with a(href=href):
+                            p(f"{file[0]['date']} - {file[0]['title']}")
 
         div(id="right")
 
