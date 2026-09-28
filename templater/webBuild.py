@@ -45,11 +45,12 @@ def buildSection():
     
     with doc.head:
         link(rel='stylesheet', href='/styles/main.css')
+        link(rel='stylesheet', href='/styles/blog.css')
         script(type='text/javascript', src='/components/titlecard.js')
         script(type='text/javascript', src='/components/navbar.js')
 
     with doc:
-        with div(id='left'):
+        with div(id="left"):
             title_card("Blog")
             nav_bar()
 
@@ -59,9 +60,8 @@ def buildSection():
             for file in metadata:
                 href = Path(str(f"{SECTION}/{file[0]['slug']}.html"))
                 li(id="blogitem")
-                h1(f"{file[0]['date']}")
                 with a(href=href):
-                    p(f"{file[0]['title']}")
+                    p(f"{file[0]['date']} - [{file[0]['tags']}] : {file[0]['title']}")
 
         div(id="right")
 

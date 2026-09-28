@@ -71,19 +71,27 @@ class TabBar extends HTMLElement {
 
     tabBar.id = "tabBar";
 
+    const tabList = document.createElement("ul");
+    tabList.id = "tabList";
+
     const tabsToDisplay = TABS.filter(
       (tab) => tab.section === "Home" || tab.section === section,
     );
 
     tabsToDisplay.forEach((tab) => {
-      const tabItem = document.createElement("a");
+      const tabItem = document.createElement("li");
+      tabItem.className = "tabItem";
+      const tabLink = document.createElement("a");
 
-      tabItem.className = "tab";
-      tabItem.textContent = tab.text;
-      tabItem.href = tab.address;
+      tabLink.className = "tabLink";
+      tabLink.textContent = tab.text;
+      tabLink.href = tab.address;
 
-      tabBar.appendChild(tabItem);
+      tabItem.append(tabLink);
+      tabList.appendChild(tabItem);
     });
+
+    tabBar.appendChild(tabList);
 
     this.appendChild(tabBar);
   }

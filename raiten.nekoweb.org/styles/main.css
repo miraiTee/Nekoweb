@@ -19,6 +19,10 @@ CSS FOR THE ENTIRE THING
   src: url("/assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf");
 }
 
+body {
+  background-color: lightblue;
+}
+
 .freeform {
   height: 200px;
   width: 200px;
@@ -109,6 +113,31 @@ CSS FOR THE ENTIRE THING
 }
 
 /* Tabs */
+#tabBar {
+  background-color: aqua;
+}
+
+#tabList {
+  list-style: none;
+}
+
+.tabItem {
+  display: inline-block;
+  padding-left: 15px;
+  padding-right: 55px;
+}
+
+.tabLink {
+  padding-left: 25px;
+  padding-right: 25px;
+
+  background-color: aquamarine;
+  border: 4px white solid;
+
+  color: black;
+  font-size: 24px;
+  text-decoration: none;
+}
 
 /* Blockings */
 
@@ -121,7 +150,7 @@ CSS FOR THE ENTIRE THING
 }
 
 #center {
-  position: absolute;
+  position: fixed;
   margin-left: 420px;
   width: 800px;
 }

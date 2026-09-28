@@ -28,11 +28,13 @@ const SITELINKS = [
     src: "/assets/images/icons/sitelinks/bsky.png",
     address: "https://bsky.app/profile/bitmae.bsky.social",
   },
+  /*
   {
     name: "Codeberg",
     src: "/assets/images/icons/sitelinks/codeberg.png",
     address: "https://codeberg.org/user/settings/actions/runners",
   },
+  */
   {
     name: "Github",
     src: "/assets/images/icons/sitelinks/github.png",
