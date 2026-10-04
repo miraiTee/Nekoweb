@@ -88,15 +88,20 @@ class Navbar extends HTMLElement {
     navList.id = "navList";
 
     NAVLINKS.forEach((navLink) => {
-      const listItem = document.createElement("li");
-      listItem.className = "navItem";
-
       const link = document.createElement("a");
-      link.textContent = navLink.item;
       link.href = navLink.address;
 
-      listItem.appendChild(link);
-      navList.appendChild(listItem);
+      const listItem = document.createElement("li");
+      listItem.className = "navItem";
+      listItem.href = navLink.address;
+
+      const listText = document.createElement("p");
+      listText.className = "listText";
+      listText.textContent = navLink.item;
+
+      listItem.appendChild(listText);
+      link.appendChild(listItem);
+      navList.appendChild(link);
     });
 
     return navList;

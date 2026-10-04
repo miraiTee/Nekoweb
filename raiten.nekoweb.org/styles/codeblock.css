@@ -3,8 +3,32 @@ For pages with codeblock
 */
 
 pre code {
+  font-family: 'Courier New', Courier, monospace;
   background-color: #eee;
   border: 1px solid #999;
   display: block;
   padding: 10px;
+
+  height: 325px;
+}
+
+.langDesc {
+  height: 100px;
+}
+
+.langBlock {
+  border: 4px grey solid;
+  margin: 4px;
+
+  padding-left: 8px;
+  padding-right: 8px;
+
+  border-radius: 8px;
+}
+
+.langTitle {
+  font-family: "Courier New", Courier, monospace;
+  text-decoration: underline;
+
+  font-size: 24px;
 }

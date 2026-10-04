@@ -3,11 +3,6 @@
   list-style: none;
 
   background-color: white;
-  row-gap: 0px;
-}
-
-#bloglist > li {
-  margin-top: 1em;
 }
 
 .blogitem {
@@ -17,6 +12,12 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 a > p {
   color: black;
+  margin-top: 0em;
+  margin-bottom: 0em;
 }

@@ -55,13 +55,15 @@ def buildSection():
             nav_bar()
 
         with div(id="center"):
+            h1("Blog Archive")
             with ul(id="bloglist"):
             
                 for file in metadata:
                     href = Path(str(f"{SECTION}/{file[0]['slug']}.html"))
                     with li(id="blogitem"):
+                        p(f"{file[0]['date']} - ")  
                         with a(href=href):
-                            p(f"{file[0]['date']} - {file[0]['title']}")
+                            p(f"{file[0]['title']}")
 
         div(id="right")
 
@@ -85,11 +87,12 @@ def buildPost(title, slug, date, tags, content):
             nav_bar()
 
         with div(id="center"):
-            h1(title)
-            h2(date)
-            h2(tags)
+            with div(id="blog_container"):
+                h1(title)
+                h2(date)
+                h2(tags)
             
-            raw(content_html)
+                raw(content_html)
 
         div(id="right")
     
