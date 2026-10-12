@@ -5,7 +5,8 @@
   background-color: white;
 }
 
-.blogitem {
+.blogitem p {
+  white-space: nowrap;
 }
 
 a {

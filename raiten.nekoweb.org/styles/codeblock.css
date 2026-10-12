@@ -3,7 +3,7 @@ For pages with codeblock
 */
 
 pre code {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   background-color: #eee;
   border: 1px solid #999;
   display: block;
@@ -31,4 +31,17 @@ pre code {
   text-decoration: underline;
 
   font-size: 24px;
+}
+
+.grid-lang {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 600px;
+}
+
+.grid-snip {
+  display: grid;
+
+  grid-auto-rows: 600px;
 }

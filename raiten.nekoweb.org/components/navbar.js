@@ -23,11 +23,15 @@ const SITELINKS = [
     src: "/assets/images/icons/sitelinks/altersprings.png",
     address: "https://alterspring.org/@miraiTee",
   },
+  /*
   {
+    
     name: "Bsky",
     src: "/assets/images/icons/sitelinks/bsky.png",
     address: "https://bsky.app/profile/bitmae.bsky.social",
+  
   },
+  */
   /*
   {
     name: "Codeberg",
