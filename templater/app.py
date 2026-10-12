@@ -59,7 +59,7 @@ class MainWindow(QMainWindow):
         slug = self.slugbox.toPlainText()
 
         now = dt.datetime.now()
-        date = now.strftime("%b %d %y")
+        date = now.strftime("%m %d %Y")
 
         MDBuild.buildmarkdown(title, slug, date, tags.split(", "), content)
         webBuild.buildPost(title, slug, date, tags, content)
