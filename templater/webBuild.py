@@ -62,7 +62,15 @@ def buildSection():
                     href = Path(str(f"{SECTION}/{file[0]['slug']}.html"))
                     with li(id="blogitem"): 
                         with a(href=href):
-                            p(f"{file[0]['date']} - {file[0]['title']}")
+                            date = file[0]['date'].split(" ")
+                            
+                            month = date[0][:3]
+                            day = date[1]
+                            year = date[2]
+                            
+                            date = month + day + year;
+                            
+                            p(f"date - {file[0]['title']}")
 
         div(id="right")
 
