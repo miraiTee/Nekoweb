@@ -61,8 +61,14 @@ def buildSection():
                 for file in metadata:
                     href = Path(str(f"{SECTION}/{file[0]['slug']}.html"))
                     with li(id="blogitem"):
+                        
+                        data = file[0]
+                        date = data['date'].split(" ")
+                        
+                        date = date[0][:3] + date[1] + date[2]
+                        
                         with a(href=href):
-                            p(f"{file[0]['date']} - {file[0]['title']}")
+                            p(f"{date} - {file[0]['title']}")
 
         div(id="right")
 
