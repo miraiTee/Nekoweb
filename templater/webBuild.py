@@ -64,13 +64,14 @@ def buildSection():
                         with a(href=href):
                             date = file[0]['date'].split(" ")
                             
-                            month = date[0][:3]
+                            month = date[0]
+                            month = month[0:3]
                             day = date[1]
                             year = date[2]
                             
                             date = month + day + year;
                             
-                            p(f"date - {file[0]['title']}")
+                            p(f"{date} - {file[0]['title']}")
 
         div(id="right")
 
