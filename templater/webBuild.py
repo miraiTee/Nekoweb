@@ -65,7 +65,7 @@ def buildSection():
                         data = file[0]
                         date = data['date'].split(" ")
                         
-                        date = date[0][:3] + date[1] + date[2]
+                        date = date[0][:3] + " " + date[1] + " " + date[2]
                         
                         with a(href=href):
                             p(f"{date} - {file[0]['title']}")
