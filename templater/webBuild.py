@@ -58,14 +58,16 @@ def buildSection():
             h1("Blog Archive")
             with ul(id="bloglist"):
             
-                for file in metadata:
-                    href = Path(str(f"{SECTION}/{file[0]['slug']}.html"))
-                    date_parts = file[0]["date"].split()
-                    date = f"{date_parts[0][:3]} {date_parts[1]}, {date_parts[2]}"
-                    
-                    with li(id="blogitem"): 
-                        with a(href=href):                            
-                            p(f"{date} - {file[0]['title']}")
+                for post in metadata:
+                    data = post[0]
+                    date_parts = data["date"].split()
+
+                    formatted_date = f"{date_parts[0][:3]} {date_parts[1]} {date_parts[2]}"
+                    href = f"{SECTION}/{data['slug']}.html"
+
+                    with li(id="blogitem"):
+                        with a(href=href):
+                            p(f"{formatted_date} - {data['title']}")
 
         div(id="right")
 
