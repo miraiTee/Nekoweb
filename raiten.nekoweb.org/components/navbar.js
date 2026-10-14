@@ -4,7 +4,7 @@
 */
 
 const HEADER = {
-  name: "mirai 10!",
+  name: "mirainet!",
   address: "/index.html",
 };
 
@@ -39,11 +39,14 @@ const SITELINKS = [
     address: "https://codeberg.org/user/settings/actions/runners",
   },
   */
+  /*
   {
     name: "Github",
     src: "/assets/images/icons/sitelinks/github.png",
     address: "https://github.com/miraiTee",
   },
+
+  */
   {
     name: "Gmail",
     src: "/assets/images/icons/sitelinks/gmail.png",

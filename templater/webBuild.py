@@ -44,6 +44,7 @@ def buildSection():
     doc = dominate.document(title=f'mirai10 | {TITLE}')
     
     with doc.head:
+        link(rel="icon", href="/assets/images/icons/moonicon.png")
         link(rel='stylesheet', href='/styles/main.css')
         link(rel='stylesheet', href='/styles/blog.css')
         script(type='text/javascript', src='/components/titlecard.js')
@@ -80,6 +81,7 @@ def buildPost(title, slug, date, tags, content):
     doc = dominate.document(title=f"mirai10 | {title}")
 
     with doc.head:
+        link(rel="icon", href="/assets/images/icons/moonicon.png")
         link(rel='stylesheet', href='/styles/main.css')
         script(type='text/javascript', src='/components/titlecard.js')
         script(type='text/javascript', src='/components/navbar.js')
